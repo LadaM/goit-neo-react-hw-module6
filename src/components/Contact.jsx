@@ -13,7 +13,10 @@ const Contact = ({ contact }) => {
 
   return (
     <li className={css.contactItem}>
-      <span>{contact.name}</span>
+      <div className={css.textContainer}>
+        <span>{contact.name}</span>
+        <span>{contact.phone}</span>
+      </div>
       <button onClick={handleDelete} className={css.deleteButton}><RiDeleteBinLine /></button>
     </li>
   );
@@ -23,6 +26,7 @@ Contact.propTypes = {
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
   }),
 };
 
