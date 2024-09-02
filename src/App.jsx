@@ -1,35 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import css from'./App.module.css'
-import clsx from 'clsx';
+import ContactList from './components/ContactList.jsx';
+import SearchBox from './components/SearchBox.jsx';
+import ContactsForm from './components/ContactsForm.jsx';
+import css from './App.module.css';
+import { Provider } from 'react-redux';
+import store from './redux/store.js';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className={css.logo} alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className={clsx(css.logo, css.react)} alt="React logo" />
-        </a>
+    <Provider store={store}>
+      <div className={css.container}>
+        <h1 className={css.title}>Address Book</h1>
+        <ContactsForm />
+        <SearchBox />
+        <ContactList />
       </div>
-      <h1>Vite + React</h1>
-      <div className={css.card}>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className={css.readTheDocs}>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </Provider>
   )
 }
 
