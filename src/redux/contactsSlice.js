@@ -2,9 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { addContact, deleteContact, fetchContacts } from './operations.js';
 import { toast } from 'react-toastify';
 
-export const selectContacts = state => state.contacts;
-export const selectContactItems = state => state.contacts.items;
-
 const initialState = {
   items: [],
   isLoading: false,

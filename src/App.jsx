@@ -5,13 +5,13 @@ import ContactList from './components/ContactList.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from './redux/operations.js';
-import { selectContacts } from './redux/contactsSlice.js';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { selectIsLoading } from './redux/selectors.js';
 
 function App() {
   const dispatch = useDispatch();
-  const { isLoading, error } = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
 
   // loading the contacts
   useEffect(() => {
@@ -21,9 +21,7 @@ function App() {
   return (
     <div className={css.container}>
       <h1 className={css.title}>Address Book</h1>
-      {isLoading && <p>Loading tasks...</p>}
-      {error && <p>{error}</p>}
-      {/*<p>{items.length > 0 && JSON.stringify(items, null, 2)}</p>*/}
+      {isLoading && <p>Loading contacts...</p>}
       <div className={css.formContainer}>
         <ContactsForm />
         <SearchBox />
