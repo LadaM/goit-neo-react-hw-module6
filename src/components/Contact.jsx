@@ -1,15 +1,15 @@
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../redux/contactsSlice';
+// import { useDispatch } from 'react-redux';
+// import { deleteContact } from '../redux/contactsSlice';
 import css from './Contact.module.css';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
 
 const Contact = ({ contact }) => {
-  const dispatch = useDispatch();
-
-  const handleDelete = () => {
-    dispatch(deleteContact(contact.id));
-  };
+  // const dispatch = useDispatch();
+  //
+  // const handleDelete = () => {
+  //   dispatch(deleteContact(contact.id));
+  // };
 
   return (
     <li className={css.contactItem}>
@@ -17,7 +17,7 @@ const Contact = ({ contact }) => {
         <span>{contact.name}</span>
         <span>{contact.phone}</span>
       </div>
-      <button onClick={handleDelete} className={css.deleteButton}><RiDeleteBinLine /></button>
+      <button className={css.deleteButton} disabled={true}><RiDeleteBinLine /></button>
     </li>
   );
 };

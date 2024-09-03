@@ -32,3 +32,8 @@
 .deleteButton:hover {
     background-color: #ff1a1a;
 }
+
+.deleteButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
