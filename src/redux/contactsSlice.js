@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addContact, deleteContact, fetchContacts } from './operations.js';
+import { toast } from 'react-toastify';
 
 export const selectContacts = state => state.contacts;
 export const selectContactItems = state => state.contacts.items;
@@ -17,6 +18,7 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+  toast.error(action.payload);
 };
 
 const slice = createSlice({
@@ -43,12 +45,12 @@ const slice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
-          task => task.id === action.payload.id,
+          contact => contact.id === action.payload.id,
         );
         state.items.splice(index, 1);
+        toast.success(`Contact ${action.payload.name} deleted`);
       });
   },
 });
 
-// export const { fetchingInProgress, fetchingSuccess, fetchingError } = slice.actions;
 export default slice.reducer;

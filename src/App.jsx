@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from './redux/operations.js';
 import { selectContacts } from './redux/contactsSlice.js';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  // getting state from store
   const dispatch = useDispatch();
   const { isLoading, error } = useSelector(selectContacts);
 
+  // loading the contacts
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -27,6 +29,17 @@ function App() {
         <SearchBox />
       </div>
       <ContactList />
+      <ToastContainer position="bottom-right"
+                      autoClose={2000}
+                      hideProgressBar={false}
+                      newestOnTop={false}
+                      closeOnClick
+                      rtl={false}
+                      pauseOnFocusLoss
+                      draggable
+                      pauseOnHover
+                      theme="light"
+                      />
     </div>
   )
 }
