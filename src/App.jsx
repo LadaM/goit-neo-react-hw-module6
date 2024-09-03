@@ -4,7 +4,7 @@ import css from './App.module.css';
 import ContactList from './components/ContactList.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchContacts } from './redux/contactOps.js';
+import { fetchContacts } from './redux/contactsOps.js';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { selectIsLoading } from './redux/selectors.js';

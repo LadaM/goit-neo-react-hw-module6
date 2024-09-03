@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addContact, deleteContact, fetchContacts } from './contactOps.js';
+import { addContact, deleteContact, fetchContacts } from './contactsOps.js';
 import { toast } from 'react-toastify';
 
 const initialState = {

@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import css from './Contact.module.css';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
-import { deleteContact } from '../redux/contactOps.js';
+import { deleteContact } from '../redux/contactsOps.js';
 
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
