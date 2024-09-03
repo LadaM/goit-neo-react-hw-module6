@@ -1,25 +1,24 @@
-// import { useDispatch } from 'react-redux';
-// import { addContact } from '../redux/contactsSlice';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../redux/operations.js';
 import css from './ContactsForm.module.css';
 import { useState } from 'react';
 
 const ContactsForm = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (name.trim()) {
-  //     dispatch(addContact({ id: Date.now().toString(), name, phone }));
-  //     setName('');
-  //     setPhone('')
-  //   }
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name.trim()) {
+      dispatch(addContact({ name, phone }));
+      setName('');
+      setPhone('')
+    }
+  };
 
   return (
-    <form className={css.contactForm}>
-    {/*<form className={css.contactForm} onSubmit={handleSubmit}>*/}
+    <form className={css.contactForm} onSubmit={handleSubmit}>
       <input
         type="text"
         value={name}
